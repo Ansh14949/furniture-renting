@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>{{ item.name }}</h1>
+<img src="{{ url_for('static', filename='images/' ~ item.image_file) }}" alt="{{ item.name }}">
+<p>{{ item.description }}</p>
+<p>Price: ${{ item.price }}</p>
+<p>Status: {{ 'Available' if item.availability else 'Unavailable' }}</p>
+{% if item.availability %}
+    <a href="{{ url_for('booking', furniture_id=item.id) }}">Book Now</a>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Payment</h1>
+<form method="POST" action="{{ url_for('payment', booking_id=booking.id) }}">
+    {{ form.hidden_tag() }}
+    <div>
+        {{ form.amount.label }}<br>
+        {{ form.amount() }}<br>
+    </div>
+    <div>
+        {{ form.payment_method.label }}<br>
+        {{ form.payment_method() }}<br>
+    </div>
+    <div>
+        {{ form.submit() }}
+    </div>
+</form>
+{% endblock %}

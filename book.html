@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Book {{ item.name }}</h1>
+<form method="POST" action="{{ url_for('booking', furniture_id=item.id) }}">
+    {{ form.hidden_tag() }}
+    <div>
+        {{ form.start_date.label }}<br>
+        {{ form.start_date() }}<br>
+    </div>
+    <div>
+        {{ form.end_date.label }}<br>
+        {{ form.end_date() }}<br>
+    </div>
+    <div>
+        {{ form.submit() }}
+    </div>
+</form>
+{% endblock %}
